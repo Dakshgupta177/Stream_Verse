@@ -1,5 +1,5 @@
 
-# 🎥 JIO_CINEMA_FULLSTACK
+# 🎥 STREAM_VERSE
 
 _**Stream Your Imagination, Anytime, Anywhere, Seamlessly**_
 
@@ -35,9 +35,9 @@ _**Stream Your Imagination, Anytime, Anywhere, Seamlessly**_
 
 ## 📖 Overview
 
-**Jio_Cinema_FULLSTACK** is a full-stack, Next.js-based streaming platform that offers a rich, interactive entertainment experience. It seamlessly integrates frontend and backend components to deliver movie browsing, detailed views, and user authentication within a scalable architecture.
+**Stream_Verse** is a full-stack, Next.js-based streaming platform that offers a rich, interactive entertainment experience. It seamlessly integrates frontend and backend components to deliver movie browsing, detailed views, and user authentication within a scalable architecture.
 
-### 💡 Why Jio_Cinema_FULLSTACK?
+### 💡 Why Stream_Verse?
 
 This project empowers developers to build robust, multimedia-rich web applications with ease. The core features include:
 
