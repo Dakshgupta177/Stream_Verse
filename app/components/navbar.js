@@ -27,7 +27,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link href="/" className="div">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
+              src="/logo.png"
               alt="Logo"
               className="m-3 h-10"
             />
@@ -90,7 +90,7 @@ const Navbar = () => {
         <div className="flex items-center">
           <Link href="/" className="div">
             <img
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
+              src="/logo.png"
               alt="Logo"
               className="m-3 h-10"
             />

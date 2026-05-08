@@ -1,5 +1,5 @@
 import React from "react";
-import { BsInstagram } from "react-icons/bs";
+import { BsGithub, BsInstagram } from "react-icons/bs";
 import { FaXTwitter } from "react-icons/fa6";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="flex h-48 w-full justify-between bg-zinc-900 text-white  max-sm:h-full max-sm:flex-col ">
         <div className="div flex max-sm:justify-center">
           <div className="div pl-5 pt-7">
-            <h1 className="pb-2 font-bold">Jiocinema</h1>
+            <h1 className="pb-2 font-bold">StreamVerse</h1>
             <p className="pb-2 text-xs font-semibold text-slate-300">For You</p>
             <p className="pb-2 text-xs font-semibold text-slate-300">Sports</p>
             <p className="pb-2 text-xs font-semibold text-slate-300">Movies</p>
@@ -38,13 +38,13 @@ const Footer = () => {
               <Link href={`https://www.instagram.com/daksh_gupta_7_7_7_7_7_7_7/?utm_source=qr&igsh=MXcwanBrM21sbXI0cg%3D%3D#`} className="contacts m-2 ml-0 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
               <BsInstagram/> 
               </Link>
-              <Link href={`https://www.instagram.com/daksh_gupta_7_7_7_7_7_7_7/?utm_source=qr&igsh=MXcwanBrM21sbXI0cg%3D%3D#`} className="contacts m-2 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
-                <FaXTwitter/>
+              <Link href={`https://github.com/dakshgupta177`} className="contacts m-2 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
+                <BsGithub/>
               </Link>
               <Link href={`https://wa.me/qr/LDDWQAGWUMEWM1`} className="contacts m-2 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
                 <IoLogoWhatsapp/>
               </Link>
-              <Link href={`https://www.instagram.com/daksh_gupta_7_7_7_7_7_7_7/?utm_source=qr&igsh=MXcwanBrM21sbXI0cg%3D%3D#`} className="contacts m-2 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
+              <Link href={`https://www.linkedin.com/in/daksh-gupta-b51143372`} className="contacts m-2 flex size-10 max-sm:size-8 items-center justify-center rounded-full bg-gray-600 text-2xl text-white">
                 <FaLinkedinIn />
               </Link>
             </div>
@@ -57,7 +57,7 @@ const Footer = () => {
           Copyright &copy; Star India Private Limited, 2024. All rights reserved.
         </p>
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Reliance_Jio_Logo.svg/500px-Reliance_Jio_Logo.svg.png"
+          src="/logo.png"
           alt=""
           className="mr-5 h-12"
         />

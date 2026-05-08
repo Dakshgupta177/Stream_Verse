@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "JioCinema - Watch Sports, Movies, Web Series, TV Online in HD Quality",
-  description: "online sports, online movies, online tv streaming, online tv, online kids show, jiocinema, watch tv online",
+  title: "StreamVerse - Watch Sports, Movies, Web Series, TV Online in HD Quality",
+  description: "online sports, online movies, online tv streaming, online tv, online kids show, streamVerse, watch tv online",
 };
 
 export default function RootLayout({ children }) {
