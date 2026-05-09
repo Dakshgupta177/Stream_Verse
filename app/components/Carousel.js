@@ -7,9 +7,10 @@ import Image from "next/image";
 
 const Carousel = ({ title, movies }) => {
   if (!movies || movies.length === 0) return null;
+  const [loading, setLoading] = React.useState(false);
 
   const scrollRef = useRef(); 
-  const Org_url = "https://image.tmdb.org/t/p/original";
+  const Org_url = "https://image.tmdb.org/t/p/w200";
 
   const next = () => {
     if (scrollRef.current) scrollRef.current.scrollLeft += 300;
@@ -20,6 +21,7 @@ const Carousel = ({ title, movies }) => {
   };
 
   return (
+      
     <div className="relative bg-black p-4 text-white">
       <h1 className="mb-4 ml-8 text-xl font-bold">{title}</h1>
 
@@ -56,8 +58,9 @@ const Carousel = ({ title, movies }) => {
                 <Image
                   src={Org_url + item.poster_path}
                   alt={item.title}
-                  width={200}
-                  height={300}
+                  width={150}
+                  height={192}
+                  onClick={() => setLoading(true)}
                   className="rounded-lg"
                 />
               </Link>
@@ -65,7 +68,15 @@ const Carousel = ({ title, movies }) => {
           ))}
         </div>
       </div>
+      {loading && (
+        <img
+          src="https://i.gifer.com/ZKZg.gif"
+          className="size-12 fixed top-1/2 left-1/2 z-50"
+          alt="Loading..."
+        />
+      )}
     </div>
+    
   );
 };
 

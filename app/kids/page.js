@@ -5,7 +5,7 @@ import { FetchFromTMDB } from "../components/FetchFromTMDB";
 import Link from "next/link";
 import Image from "next/image";
 const kids = () => {
-  const Org_url = "https://image.tmdb.org/t/p/original";
+  const Org_url = "https://image.tmdb.org/t/p/w200";
   const params = useParams();
   const [chhotabheem, setchhotabheem] = useState([]);
   const [ninja, setninja] = useState([]);

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FetchFromTMDB } from "../components/FetchFromTMDB";
 import Image from "next/image";
 const Movies = () => {
-  const Org_url = "https://image.tmdb.org/t/p/original";
+  const Org_url = "https://image.tmdb.org/t/p/w200";
   const [popmov, setpopmov] = useState([]);
   const [nowmov, setnowmov] = useState([]);
   const [topmov, settopmov] = useState([]);

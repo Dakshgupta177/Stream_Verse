@@ -12,7 +12,7 @@ const Manager = () => {
   const [movies, setmovies] = useState([]);
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
-  const Org_url = "https://image.tmdb.org/t/p/original";
+  const Org_url = "https://image.tmdb.org/t/p/w500";
   const ref = useRef();
   const GetMovies = async () => {
     setLoading(true);
@@ -91,6 +91,7 @@ const Manager = () => {
           <Link
             href={`/search/${item.title}`}
             key={item.id}
+            onClick={() => setLoading(true)}
             className="suggestions mr-4 flex h-9 items-center justify-center rounded-full bg-zinc-600 pl-3 pr-3 font-semibold text-white whitespace-nowrap"
           >
             {item.title}
@@ -142,6 +143,7 @@ const Manager = () => {
                   height={500}
                   src={Org_url + item.backdrop_path}
                   alt={item.title}
+                  onClick={() => setLoading(true)}
                   className="h-full w-auto object-cover rounded-xl"
                 />
                 <div className="absolute bottom-4 left-4 text-white text-xl font-bold bg-black/60 px-3 py-1 rounded">
@@ -152,11 +154,11 @@ const Manager = () => {
           ))}
         </motion.div>
       </div>
-      <Carousel title="In The Spotlight" movies={movies.slice(0, 20)} />
-      <Carousel title="Trending Now" movies={movies.slice(20, 40)} />
-      <Carousel title="Popular Movies" movies={movies.slice(40, 60)} />
-      <Carousel title="Top Rated" movies={movies.slice(60, 80)} />
-      <Carousel title="New Releases" movies={movies.slice(80, 100)} />
+      <Carousel title="In The Spotlight" movies={movies.slice(0, 20)}/>
+      <Carousel title="Trending Now" movies={movies.slice(20, 40)}/>
+      <Carousel title="Popular Movies" movies={movies.slice(40, 60)}/>
+      <Carousel title="Top Rated" movies={movies.slice(60, 80)}/>
+      <Carousel title="New Releases" movies={movies.slice(80, 100)}/>
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">

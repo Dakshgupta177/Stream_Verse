@@ -10,31 +10,28 @@ const videos = () => {
   const [loading, setloading] = useState(false);
   const [simimovies, setsimimovies] = useState([]);
   const [info, setinfo] = useState(null);
-  const Loader = async () => {
+  const getMovie = async () => {
     const data = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US`
+      `https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US`,
     );
+    const info = await FetchFromTMDB(
+      `https://api.themoviedb.org/3/movie/${params.id}?`,
+    );
+
     if (data.results.length > 0) {
       var videoKey = `https://www.youtube.com/embed/${data.results[0].key}`;
       setvideo(videoKey);
+      const similar = await FetchFromTMDB(
+        `https://api.themoviedb.org/3/movie/${params.id}/similar?`,
+      );
+      setsimimovies(similar.results);
+      setinfo(info);
     }
     setloading(true);
   };
-  const GetMovie = async () => {
-    const info = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/${params.id}?`
-    );
-    const similar = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/${params.id}/similar?`
-    );
-
-    setsimimovies(similar.results);
-    setinfo(info);
-  };
 
   useEffect(() => {
-    Loader();
-    GetMovie();
+    getMovie();
   }, []);
 
   return (
