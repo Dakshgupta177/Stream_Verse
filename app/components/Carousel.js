@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion"; 
 import Link from "next/link";
+import Image from "next/image";
 
 const Carousel = ({ title, movies }) => {
   if (!movies || movies.length === 0) return null;
@@ -52,7 +53,7 @@ const Carousel = ({ title, movies }) => {
               className="min-w-[140px] snap-start"
             >
               <Link href={`/videos/${item.id}`}>
-                <img
+                <Image
                   src={Org_url + item.poster_path}
                   alt={item.title}
                   width={200}

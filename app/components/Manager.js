@@ -5,6 +5,7 @@ import { FetchFromTMDB } from "./FetchFromTMDB";
 import Link from "next/link";
 import { motion } from "motion/react";
 import Carousel from "./Carousel";
+import Image from "next/image";
 
 const Manager = () => {
   const [mainmovies, setmainmovies] = useState([]);
@@ -13,14 +14,6 @@ const Manager = () => {
   const [loading, setLoading] = useState(true);
   const Org_url = "https://image.tmdb.org/t/p/original";
   const ref = useRef();
-  const next = () => {
-    if (ref.current) ref.current.scrollLeft += 1000;
-  };
-
-  const prev = () => {
-    if (ref.current) ref.current.scrollLeft -= 1000;
-  };
-
   const GetMovies = async () => {
     setLoading(true);
     try {
@@ -55,7 +48,7 @@ const Manager = () => {
   };
 
   useEffect(() => {
-    if (count < 20) {
+    if (count < 10) {
       GetMovies();
       setTimeout(() => setCount(count + 1), 100);
     }
@@ -130,7 +123,7 @@ const Manager = () => {
           ref={ref}
           className="hide-scrollbar flex gap-4 overflow-y-hidden pr-8 h-full w-[700vw]"
           animate={{ x: ['0%', '-70%'] }} 
-        transition={{
+          transition={{
           duration: 30,
           ease: 'linear',
           repeat: Infinity,
@@ -144,7 +137,9 @@ const Manager = () => {
               className="relative flex-shrink-0 h-full w-auto max-sm:w-[100vw]"
             >
               <Link href={`/videos/${item.id}`}>
-                <img
+                <Image
+                  width={300}
+                  height={500}
                   src={Org_url + item.backdrop_path}
                   alt={item.title}
                   className="h-full w-auto object-cover rounded-xl"

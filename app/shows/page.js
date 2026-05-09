@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FetchFromTMDB } from "../components/FetchFromTMDB";
+import Image from "next/image";
 const shows = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
   const [popshows, setpopshows] = useState([]);
@@ -10,16 +11,16 @@ const shows = () => {
   const [upcomshows, setupcomshows] = useState([]);
   const Getshows = async () => {
     const pop = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=1&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=1&sort_by=popularity.desc&with_original_language=hi`,
     );
     const now = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=2&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=2&sort_by=popularity.desc&with_original_language=hi`,
     );
     const top = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=3&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=3&sort_by=popularity.desc&with_original_language=hi`,
     );
     const upcom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=4&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/discover/tv?include_adult=false&include_null_first_air_dates=false&language=hi&page=4&sort_by=popularity.desc&with_original_language=hi`,
     );
     setpopshows(pop.results);
     setnowshows(now.results);
@@ -45,7 +46,9 @@ const shows = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -73,7 +76,9 @@ const shows = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -101,7 +106,9 @@ const shows = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -129,7 +136,9 @@ const shows = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -146,12 +155,11 @@ const shows = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-        <img
-          src="https://i.gifer.com/ZKZg.gif"
-          className="size-12 fixed top-1/2 left-1/2 z-50"
-          alt="Loading..."
-        />
-      
+      <img
+        src="https://i.gifer.com/ZKZg.gif"
+        className="size-12 fixed top-1/2 left-1/2 z-50"
+        alt="Loading..."
+      />
     </div>
   );
 };

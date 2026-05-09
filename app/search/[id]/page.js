@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FetchFromTMDB } from "../../components/FetchFromTMDB";
 import Link from "next/link";
+import Image from "next/image";
 const search = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
   const params = useParams();
@@ -30,7 +31,9 @@ const search = () => {
                 key={item.id}
                 className="div contents "
               >
-                <img
+                <Image
+                  width={150}
+                  height={192}
                   src={Org_url + item.poster_path}
                   alt=""
                   className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "

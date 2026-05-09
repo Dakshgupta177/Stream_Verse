@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { FetchFromTMDB } from "../components/FetchFromTMDB";
+import Image from "next/image";
 const Movies = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
   const [popmov, setpopmov] = useState([]);
@@ -10,17 +11,18 @@ const Movies = () => {
   const [upcommov, setupcommov] = useState([]);
   const Getmovies = async () => {
     const pop = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/popular?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/movie/popular?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`,
     );
     const now = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/now_playing?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/movie/now_playing?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`,
     );
     const top = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/top_rated?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/movie/top_rated?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`,
     );
     const upcom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/movie/upcoming?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`
+      `https://api.themoviedb.org/3/movie/upcoming?original_language=hi&page=1&primary_release_date.gte=2017-10-08&sort_by=popularity.desc&with_original_language=hi`,
     );
+    console.log(pop,now);
     setpopmov(pop.results);
     setnowmov(now.results);
     settopmov(top.results);
@@ -45,7 +47,9 @@ const Movies = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -63,7 +67,7 @@ const Movies = () => {
       <div className="hide-scrollbar flex overflow-scroll bg-black p-2 text-white">
         {nowmov.map((item) => {
           return (
-            item.poster_path && (
+            item.backdrop_path && (
               <div
                 key={item.id}
                 className="p-2 m-2 rounded-lg flex flex-col items-center "
@@ -73,8 +77,10 @@ const Movies = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
-                    src={Org_url + item.poster_path}
+                  <Image
+                    width={150}
+                    height={192}
+                    src={Org_url + item.backdrop_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
                   />
@@ -91,7 +97,7 @@ const Movies = () => {
       <div className="hide-scrollbar flex overflow-scroll bg-black p-2 text-white">
         {topmov.map((item) => {
           return (
-            item.poster_path && (
+            item.backdrop_path && (
               <div
                 key={item.id}
                 className="p-2 m-2 rounded-lg flex flex-col items-center "
@@ -101,8 +107,10 @@ const Movies = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
-                    src={Org_url + item.poster_path}
+                  <Image
+                    width={150}
+                    height={192}
+                    src={Org_url + item.backdrop_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
                   />
@@ -119,7 +127,7 @@ const Movies = () => {
       <div className="hide-scrollbar flex overflow-scroll bg-black p-2 text-white">
         {upcommov.map((item) => {
           return (
-            item.poster_path && (
+            item.backdrop_path && (
               <div
                 key={item.id}
                 className="p-2 m-2 rounded-lg flex flex-col items-center "
@@ -129,8 +137,10 @@ const Movies = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
-                    src={Org_url + item.poster_path}
+                  <Image
+                    width={150}
+                    height={192}
+                    src={Org_url + item.backdrop_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
                   />
@@ -146,11 +156,11 @@ const Movies = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-        <img
-          src="https://i.gifer.com/ZKZg.gif"
-          className="size-12 fixed top-1/2 left-1/2 z-50"
-          alt="Loading..."
-        />
+      <img
+        src="https://i.gifer.com/ZKZg.gif"
+        className="size-12 fixed top-1/2 left-1/2 z-50"
+        alt="Loading..."
+      />
     </div>
   );
 };

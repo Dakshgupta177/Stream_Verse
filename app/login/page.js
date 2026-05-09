@@ -1,9 +1,8 @@
 "use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa6";
 import { FaGoogle } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
 import { redirect } from "next/navigation";
 import React from "react";
 const login = () => {

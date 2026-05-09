@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { FetchFromTMDB } from "../components/FetchFromTMDB";
 import Link from "next/link";
+import Image from "next/image";
 const kids = () => {
   const Org_url = "https://image.tmdb.org/t/p/original";
   const params = useParams();
@@ -14,22 +15,22 @@ const kids = () => {
   const [motu, setmotu] = useState([]);
   const getmovie = async () => {
     const bheem = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=chhota bheem&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=chhota bheem&include_adult=false&language=en-US&page=1`,
     );
     const ninja = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=ninja hattori&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=ninja hattori&include_adult=false&language=en-US&page=1`,
     );
     const shinchan = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=shinchan&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=shinchan&include_adult=false&language=en-US&page=1`,
     );
     const pokemon = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=pokemon&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=pokemon&include_adult=false&language=en-US&page=1`,
     );
     const tom = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=tom and jerry&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=tom and jerry&include_adult=false&language=en-US&page=1`,
     );
     const motu = await FetchFromTMDB(
-      `https://api.themoviedb.org/3/search/movie?query=motu patlu&include_adult=false&language=en-US&page=1`
+      `https://api.themoviedb.org/3/search/movie?query=motu patlu&include_adult=false&language=en-US&page=1`,
     );
     setchhotabheem(bheem.results);
     setninja(ninja.results);
@@ -57,7 +58,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -85,7 +88,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -113,7 +118,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -141,7 +148,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -169,7 +178,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -197,7 +208,9 @@ const kids = () => {
                   key={item.id}
                   className="div contents "
                 >
-                  <img
+                  <Image
+                    width={150}
+                    height={192}
                     src={Org_url + item.poster_path}
                     alt=""
                     className="m-2 flex-shrink-0 rounded-lg h-48 max-w-none "
@@ -214,11 +227,11 @@ const kids = () => {
     </div>
   ) : (
     <div className="h-screen bg-black text-white text-8xl">
-        <img
-          src="https://i.gifer.com/ZKZg.gif"
-          className="size-12 fixed top-1/2 left-1/2 z-50"
-          alt="Loading..."
-        />
+      <img
+        src="https://i.gifer.com/ZKZg.gif"
+        className="size-12 fixed top-1/2 left-1/2 z-50"
+        alt="Loading..."
+      />
     </div>
   );
 };
